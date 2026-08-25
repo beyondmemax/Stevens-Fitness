@@ -15,10 +15,13 @@ const SITE = {
   responseTime: 'Usually respond within a day.',
 
   /* --- Roster ------------------------------------------------------------ */
-  // The scarcity pitch. Update `filled` as clients join.
+  // The scarcity pitch. `total` is the business's hard cap on clients.
+  // `filled` is NOT set here — it's calculated automatically in main.js by
+  // adding up every slot's `taken` value below, so the roster bar can never
+  // drift out of sync with the actual schedule. Update a slot's `taken`
+  // count and this number updates itself everywhere on the site.
   roster: {
-    total:  12,
-    filled: 7,
+    total: 12,
   },
 
   /* --- Pricing ----------------------------------------------------------- */
