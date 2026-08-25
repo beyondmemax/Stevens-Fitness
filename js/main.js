@@ -119,20 +119,31 @@
      Roster status  —  "7 / 12 spots filled"
      --------------------------------------------------------------------- */
   function renderRoster() {
-    const host = document.querySelector('[data-roster]');
-    if (!host || !cfg.roster) return;
+    if (!cfg.roster) return;
 
-    const { filled, total } = cfg.roster;
+    const total = cfg.roster.total;
+
+    // `filled` is derived, not configured directly — it's the sum of every
+    // slot's `taken` count in cfg.schedule. This is what keeps the roster
+    // bar from ever contradicting the schedule below it.
+    const filled = (Array.isArray(cfg.schedule) ? cfg.schedule : [])
+      .flatMap(function (group) { return group.slots || []; })
+      .reduce(function (sum, slot) { return sum + (slot.taken || 0); }, 0);
+
     const isFull = filled >= total;
 
-    // Any "12" printed in copy stays in sync with the config
+    // Any "12" printed in copy stays in sync with the config, on every page
+    // (this runs even on pages with no roster status bar, e.g. About).
     document.querySelectorAll('[data-roster-total]').forEach(function (el) {
       el.textContent = total;
     });
 
-    host.innerHTML = isFull
-      ? '<b>Full</b> — join the waitlist'
-      : '<b>' + filled + '</b> / ' + total + ' spots filled';
+    const host = document.querySelector('[data-roster]');
+    if (host) {
+      host.innerHTML = isFull
+        ? '<b>Full</b> — join the waitlist'
+        : '<b>' + filled + '</b> / ' + total + ' spots filled';
+    }
 
     // Swap the CTA copy when the roster is full
     document.querySelectorAll('[data-roster-cta]').forEach((el) => {
