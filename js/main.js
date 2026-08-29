@@ -162,13 +162,19 @@
       const chips = group.slots.map(function (slot) {
         const open = Math.max(0, slot.capacity - slot.taken);
         const full = open === 0;
+
+        // Open slots are links straight to the contact form with this time
+        // pre-selected. Full slots stay plain — nothing to click into yet.
+        const tag = full ? 'div' : 'a';
+        const hrefAttr = full ? '' : ' href="/contact.html?slot=' + encodeURIComponent(slot.time) + '"';
+
         return '' +
-          '<div class="slot' + (full ? ' slot--full' : '') + '">' +
+          '<' + tag + ' class="slot' + (full ? ' slot--full' : '') + '"' + hrefAttr + '>' +
             '<span class="slot__time">' + esc(slot.time) + '</span>' +
             '<span class="slot__spots">' +
               (full ? 'Full' : open + (open === 1 ? ' spot open' : ' spots open')) +
             '</span>' +
-          '</div>';
+          '</' + tag + '>';
       }).join('');
 
       return '' +
@@ -196,6 +202,32 @@
       });
       opts.push('<option value="flexible">I\'m flexible</option>');
       select.innerHTML = opts.join('');
+
+      // If we arrived here via a "?slot=" link from a schedule chip,
+      // pre-select that time and let the visitor know it worked.
+      preselectSlotFromURL(select);
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     Pre-select the contact form's time dropdown from a "?slot=" URL param,
+     set by clicking an open slot chip on the homepage or schedule page.
+     --------------------------------------------------------------------- */
+  function preselectSlotFromURL(select) {
+    const requested = new URLSearchParams(window.location.search).get('slot');
+    if (!requested) return;
+
+    const match = Array.prototype.find.call(select.options, function (opt) {
+      return opt.value === requested;
+    });
+    if (!match) return;
+
+    select.value = requested;
+
+    const note = document.querySelector('[data-slot-preselect-note]');
+    if (note) {
+      note.hidden = false;
+      note.textContent = 'Time pre-filled from your selection: ' + requested + '.';
     }
   }
 
