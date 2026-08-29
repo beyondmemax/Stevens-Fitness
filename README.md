@@ -1,4 +1,4 @@
-# Stevens Fitness
+# S.S Strength & Conditioning Club
 
 Static website for a semi-private strength & conditioning coach.
 Plain HTML, CSS, and JavaScript — no build step, no dependencies, no `node_modules`.
@@ -60,7 +60,7 @@ Open http://localhost:3000
 ```bash
 git init
 git add .
-git commit -m "Stevens Fitness site"
+git commit -m "S.S Strength & Conditioning Club site"
 git branch -M main
 git remote add origin https://github.com/USERNAME/REPO.git
 git push -u origin main
