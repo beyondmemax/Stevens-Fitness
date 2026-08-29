@@ -1,5 +1,5 @@
 /* ============================================================================
-   STEVENS FITNESS — Site configuration
+   S.S STRENGTH & CONDITIONING CLUB — Site configuration
    ----------------------------------------------------------------------------
    THIS IS THE ONLY FILE YOU NEED TO EDIT FOR DAY-TO-DAY UPDATES.
    Change a number here and it updates everywhere on the site automatically.
@@ -8,10 +8,10 @@
 const SITE = {
 
   /* --- Business basics --------------------------------------------------- */
-  name:  'Stevens Fitness',
-  email: 'REPLACE@EMAIL.COM',
-  phone: '(555) 555-5555',
-  instagram: 'stevensfitness',          // handle only, no @
+  name:  'S.S Strength & Conditioning Club',
+  email: 'sjszwejkowski24@gmail.com',
+  phone: 'REPLACE-PHONE-NUMBER',         // e.g. '(555) 555-5555'
+  instagram: 'REPLACE-INSTAGRAM-HANDLE', // handle only, no @
   responseTime: 'Usually respond within a day.',
 
   /* --- Roster ------------------------------------------------------------ */
