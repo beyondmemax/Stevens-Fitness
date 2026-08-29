@@ -44,16 +44,16 @@ const SITE = {
       day: 'Monday – Friday',
       note: 'Morning block',
       slots: [
-        { time: '10:00 – 11:00 AM', capacity: 3, taken: 3 },
-        { time: '11:00 – 12:00 PM', capacity: 3, taken: 1 },
-        { time: '12:00 – 1:00 PM',  capacity: 3, taken: 2 },
+        { time: '10:00 – 11:00 AM', capacity: 3, taken: 0 },
+        { time: '11:00 – 12:00 PM', capacity: 3, taken: 0 },
+        { time: '12:00 – 1:00 PM',  capacity: 3, taken: 0 },
       ],
     },
     {
       day: 'Monday – Friday',
       note: 'Evening session',
       slots: [
-        { time: '7:00 – 8:00 PM', capacity: 3, taken: 1 },
+        { time: '7:00 – 8:00 PM', capacity: 3, taken: 0 },
       ],
     },
   ],
