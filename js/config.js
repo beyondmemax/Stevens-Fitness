@@ -1,63 +1,244 @@
-/* ============================================================================
-   S.S STRENGTH & CONDITIONING CLUB — Site configuration
-   ----------------------------------------------------------------------------
-   THIS IS THE ONLY FILE YOU NEED TO EDIT FOR DAY-TO-DAY UPDATES.
-   Change a number here and it updates everywhere on the site automatically.
-   ========================================================================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S.S Strength &amp; Conditioning Club — Semi-Private Coaching</title>
+<meta name="description" content="Semi-private strength and conditioning coaching. Three clients per session, twelve clients total. Same coach, same crew, every week.">
+<meta property="og:title" content="S.S Strength &amp; Conditioning Club — Semi-Private Coaching">
+<meta property="og:description" content="Three clients per session, twelve clients total. No rotating faces, no crowded floor.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/img/og-image.jpg">
+<link rel="icon" href="/assets/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<script>document.documentElement.classList.add('js');</script>
 
-const SITE = {
+</head>
+<body>
 
-  /* --- Business basics --------------------------------------------------- */
-  name:  'S.S Strength & Conditioning Club',
-  email: 'sjszwejkowski24@gmail.com',
-  phone: 'REPLACE-PHONE-NUMBER',         // e.g. '(555) 555-5555'
-  instagram: 'REPLACE-INSTAGRAM-HANDLE', // handle only, no @
-  responseTime: 'Usually respond within a day.',
+<a class="skip-link" href="#main">Skip to content</a>
 
-  /* --- Roster ------------------------------------------------------------ */
-  // The scarcity pitch. `total` is the business's hard cap on clients.
-  // `filled` is NOT set here — it's calculated automatically in main.js by
-  // adding up every slot's `taken` value below, so the roster bar can never
-  // drift out of sync with the actual schedule. Update a slot's `taken`
-  // count and this number updates itself everywhere on the site.
-  roster: {
-    total: 12,
-  },
+<!-- ========================= HEADER ========================= -->
+<header class="header">
+  <div class="wrap header__inner">
+    <a href="/index.html" class="logo" title="S.S Strength &amp; Conditioning Club">S.S.<span> S&amp;C</span></a>
 
-  /* --- Pricing ----------------------------------------------------------- */
-  pricing: {
-    amount: 250,
-    period: '/mo',
-    note:   'Billed monthly · No long-term contract',
-    includes: [
-      'Recurring weekly time slot, held for you',
-      'Semi-private coaching, max 3 clients per session',
-      'Programming adjusted to your goals',
-      'Cancel anytime, no long-term contract',
-    ],
-  },
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="/about.html">About</a></li>
+        <li><a class="nav__link" href="/training.html">Training</a></li>
+        <li><a class="nav__link" href="/schedule.html">Schedule</a></li>
+        <li><a class="nav__link" href="/pricing.html">Pricing</a></li>
+        <li><a class="nav__link" href="/faq.html">FAQ</a></li>
+        <li><a class="nav__cta" href="/contact.html" data-roster-cta>Get a Spot</a></li>
+      </ul>
+    </nav>
 
-  /* --- Schedule ---------------------------------------------------------- */
-  // capacity = seats in that session. taken = how many are currently filled.
-  schedule: [
-    {
-      day: 'Monday – Friday',
-      note: 'Morning block',
-      slots: [
-        { time: '10:00 – 11:00 AM', capacity: 3, taken: 0 },
-        { time: '11:00 – 12:00 PM', capacity: 3, taken: 0 },
-        { time: '12:00 – 1:00 PM',  capacity: 3, taken: 0 },
-      ],
-    },
-    {
-      day: 'Monday – Friday',
-      note: 'Evening session',
-      slots: [
-        { time: '7:00 – 8:00 PM', capacity: 3, taken: 0 },
-      ],
-    },
-  ],
-};
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
 
-// Make it available to main.js
-window.SITE = SITE;
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <div class="wrap">
+      <ul class="mobile-nav__list">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/training.html">Training</a></li>
+        <li><a href="/schedule.html">Schedule</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/contact.html">Get a Spot</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================= HERO ========================= -->
+  <section class="hero">
+    <svg class="hero__deco" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+      <circle cx="300" cy="300" r="299" stroke="currentColor"/>
+      <circle cx="300" cy="300" r="215" stroke="currentColor"/>
+      <circle cx="205" cy="300" r="150" stroke="currentColor"/>
+    </svg>
+
+    <div class="wrap hero__inner reveal">
+      <span class="eyebrow">Semi-Private Strength &amp; Conditioning</span>
+      <h1>
+        <span data-roster-total>12</span> Spots.<br>
+        <span class="text-amber">3</span> At A Time.<br>
+        That's It.
+      </h1>
+      <p class="lede">
+        Small-group strength and conditioning coached by Steven Szwejkowski.
+        Three clients per session, twelve clients total — no rotating faces, no crowded floor,
+        no waiting on a rack.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="/contact.html" data-roster-cta>Check Availability</a>
+        <a class="btn btn--outline" href="/schedule.html">See the Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= ROSTER STATUS ========================= -->
+  <section class="wrap section--tight" style="padding-top:0">
+    <div class="statbar reveal">
+      <span class="statbar__label">Roster Status</span>
+      <span class="statbar__value" data-roster>7 / 12 spots filled</span>
+    </div>
+  </section>
+
+  <!-- ========================= SCHEDULE PREVIEW ========================= -->
+  <section class="wrap section">
+    <div class="reveal">
+      <span class="eyebrow">Weekly Schedule</span>
+      <h2>Morning Block,<br>One Evening Session</h2>
+      <p class="lede">
+        Three concurrent clients per hour, Monday through Friday. One evening hour
+        for anyone whose day doesn't fit mornings.
+      </p>
+    </div>
+
+    <div data-schedule style="margin-top:3rem" class="reveal"></div>
+
+    <div class="btn-row">
+      <a class="btn btn--ghost" href="/schedule.html">Full schedule &amp; availability →</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ========================= COACH TEASER ========================= -->
+  <section class="wrap section">
+    <div class="split reveal">
+      <div>
+        <span class="eyebrow eyebrow--slate">Your Coach</span>
+        <h2>8+ Years Coaching.<br>One Focus: Strength &amp; Conditioning.</h2>
+        <p class="lede">
+          From D1 baseball and wrestling at Fordham to eight-plus years coaching strength
+          and conditioning — including four years as a Tier 1 trainer at Equinox and four
+          full-time at the McBurney YMCA.
+        </p>
+      </div>
+      <a class="btn btn--outline" href="/about.html">Read More</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ========================= HOW IT WORKS ========================= -->
+  <section class="wrap section">
+    <div class="reveal">
+      <span class="eyebrow">How It Works</span>
+      <h2>Simple, By Design</h2>
+    </div>
+
+    <div class="steps reveal" style="margin-top:2.5rem">
+      <div class="step">
+        <p class="step__tag">Reach out</p>
+        <h3>Send an inquiry</h3>
+        <p>Tell me your goals and which time block works. I'll confirm whether a spot is open in that session.</p>
+      </div>
+      <div class="step">
+        <p class="step__tag">Get matched</p>
+        <h3>Join a group of three</h3>
+        <p>You're placed with up to two other clients at a similar level, in the same recurring time slot each week.</p>
+      </div>
+      <div class="step">
+        <p class="step__tag">Train</p>
+        <h3>Same coach, same crew</h3>
+        <p>Consistent programming, consistent group. You show up, the work is already planned.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ========================= PRICING TEASER ========================= -->
+  <section class="wrap section">
+    <div class="reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2>One Package, No Tiers</h2>
+    </div>
+
+    <div class="card card--feature reveal" style="margin-top:2.5rem;max-width:38rem">
+      <h3>Monthly membership</h3>
+      <ul class="check-list" data-price-includes></ul>
+      <div class="price">
+        <span class="price__amount" data-price>$250</span>
+        <span class="price__period" data-price-period>/mo</span>
+      </div>
+      <p class="muted" style="margin-top:0.75rem" data-price-note></p>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn--ghost" href="/pricing.html">What's included →</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ========================= CTA ========================= -->
+  <section class="wrap section">
+    <div class="reveal" style="max-width:40rem">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Ask About a Spot</h2>
+      <p class="lede">
+        Spots are limited to <span data-roster-total>12</span> clients total. Send your info
+        and preferred time — I'll reply with availability.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--solid" href="/contact.html" data-roster-cta>Send an Inquiry</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a href="/index.html" class="logo" title="S.S Strength &amp; Conditioning Club">S.S.<span> S&amp;C</span></a>
+        <p class="muted" style="margin-top:1rem;max-width:24ch">
+          Semi-private strength &amp; conditioning.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/training.html">Training</a></li>
+          <li><a href="/schedule.html">Schedule</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#" data-email>email</a></li>
+          <li><a href="#" data-phone>phone</a></li>
+          <li><a href="#" data-instagram>@handle</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>&copy; <span data-year>2026</span> S.S Strength & Conditioning Club. All rights reserved.</span>
+      <span>Built for a <span data-roster-total>12</span>-client roster.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
